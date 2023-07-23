@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 //預設值
 const initialUserInput = {
@@ -8,15 +7,15 @@ const initialUserInput = {
   duration: 10,
 };
 
-function UserInput() {
+function UserInput(props) {
   //every input need useput, usehook
   const [userInput, setUserInput] = useState(initialUserInput);
 
   const submidHandler = (event) => {
     //Default will reload the page
     event.preventDefault();
-    //... do something
-    console.log("SUBMIT");
+    //props pass the data, trigger
+    props.onCalculate(userInput);
   };
 
   const resetHandler = (event) => {
@@ -58,22 +57,6 @@ function UserInput() {
               type="number"
               id="yearly-contribution"
             />
-=======
-import React from "react";
-
-function UserInput() {
-  return (
-    <div>
-      <form className="form">
-        <div className="input-group">
-          <p>
-            <label htmlFor="current-savings">Current Savings ($)</label>
-            <input type="number" id="current-savings" />
-          </p>
-          <p>
-            <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
-            <input type="number" id="yearly-contribution" />
->>>>>>> 40b10492eba5d5bba5364323331f3e4cd1436235
           </p>
         </div>
         <div className="input-group">
@@ -81,7 +64,6 @@ function UserInput() {
             <label htmlFor="expected-return">
               Expected Interest (%, per year)
             </label>
-<<<<<<< HEAD
             <input
               onChange={(event) =>
                 changeHandler("expected-return", event.target.value)
@@ -106,17 +88,6 @@ function UserInput() {
         </div>
         <p className="actions">
           <button onClick={resetHandler} type="reset" className="buttonAlt">
-=======
-            <input type="number" id="expected-return" />
-          </p>
-          <p>
-            <label htmlFor="duration">Investment Duration (years)</label>
-            <input type="number" id="duration" />
-          </p>
-        </div>
-        <p className="actions">
-          <button type="reset" className="buttonAlt">
->>>>>>> 40b10492eba5d5bba5364323331f3e4cd1436235
             Reset
           </button>
           <button type="submit" className="button">
