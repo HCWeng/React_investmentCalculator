@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+//預設值
+const initialUserInput = {
+  "current-savings": 10000,
+  "yearly-contribution": 1200,
+  "expected-return": 7,
+  duration: 10,
+};
 
 function UserInput() {
+  //every input need useput, usehook
+  const [userInput, setUserInput] = useState(initialUserInput);
+
   const submidHandler = (event) => {
     //Default will reload the page
     event.preventDefault();
@@ -9,11 +19,16 @@ function UserInput() {
   };
 
   const resetHandler = (event) => {
-    //...
-    console.log("RESET");
+    setUserInput(initialUserInput);
   };
   //create  2 parameter from 'current-savings' and 'event.target.value'
   const changeHandler = (input, value) => {
+    setUserInput((prevInput) => {
+      return {
+        ...prevInput,
+        [input]: value, //user input new value
+      };
+    });
     console.log(input, value);
   };
 
@@ -27,6 +42,7 @@ function UserInput() {
               onChange={(event) =>
                 changeHandler("current-savings", event.target.value)
               }
+              value={userInput["current-savings"]}
               type="number"
               id="current-savings"
             />
@@ -37,6 +53,7 @@ function UserInput() {
               onChange={(event) =>
                 changeHandler("yearly-contribution", event.target.value)
               }
+              value={userInput["yearly-contribution"]}
               type="number"
               id="yearly-contribution"
             />
@@ -51,6 +68,7 @@ function UserInput() {
               onChange={(event) =>
                 changeHandler("expected-return", event.target.value)
               }
+              value={userInput["expected-return"]}
               type="number"
               id="expected-return"
             />
@@ -61,6 +79,8 @@ function UserInput() {
               onChange={(event) =>
                 changeHandler("duration", event.target.value)
               }
+              //設定預設值
+              value={userInput.duration}
               type="number"
               id="duration"
             />
