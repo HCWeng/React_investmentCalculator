@@ -1,4 +1,6 @@
 import React from "react";
+import classes from "./ResultsTable.module.css";
+
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
@@ -10,7 +12,7 @@ function ResultsTable(props) {
   return (
     <div>
       {" "}
-      <table className="result">
+      <table className={classes.result}>
         <thead>
           <tr>
             <th>Year</th>

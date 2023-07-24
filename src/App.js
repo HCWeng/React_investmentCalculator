@@ -40,7 +40,9 @@ function App() {
       <Header />
       <UserInput onCalculate={calculateHandler} />
       {/* 有資料顯示跟無輸入資料顯示 */}
-      {!userInput && <p>No investment calculated yet.</p>}
+      {!userInput && (
+        <p style={{ textAlign: "center" }}>No investment calculated yet.</p>
+      )}
       {/* pass the yearlydata key to the table */}
       {userInput && (
         <ResultsTable
