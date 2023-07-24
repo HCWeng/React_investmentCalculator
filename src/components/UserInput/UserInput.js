@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classes from "./UserInput.modul.css";
 //預設值
 const initialUserInput = {
   "current-savings": 10000,
@@ -34,7 +35,7 @@ function UserInput(props) {
 
   return (
     <div>
-      <form onSubmit={submidHandler} className="form">
+      <form onSubmit={submidHandler} className="classes.form">
         <div className="input-group">
           <p>
             <label htmlFor="current-savings">Current Savings ($)</label>
